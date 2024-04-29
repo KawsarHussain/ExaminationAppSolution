@@ -39,4 +39,26 @@ internal struct Address
     }
 
     #endregion
+
+    #region Constructors
+
+    //Test Constructor
+    public Address()
+    {
+        this._doorNumber = "1600";
+        this._firstAddressLine = "Pennsylvania Avenue";
+        this._postCode = "DC 20500";
+        this._city = "Washington DC";
+    }
+
+    public Address(string doorNumber, string firstAddressLine, string postCode, string city)
+    {
+        _doorNumber = doorNumber;
+        _firstAddressLine = firstAddressLine;
+        _postCode = postCode;
+        _city = city;
+    }
+
+
+    #endregion
 }
