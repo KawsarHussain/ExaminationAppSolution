@@ -1,28 +1,27 @@
 ﻿using SQLite;
 
-namespace ExaminationApp.Models
+namespace ExaminationApp.Models;
+
+[Table("User")]
+public class UserRecord
 {
-    [Table("User")]
-    public class UserRecord
-    {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; }
+    [PrimaryKey, AutoIncrement]
+    public int Id { get; }
 
-        [MaxLength(150)]
-        public string FirstName { get; set; }
-        
-        [MaxLength(150)]
-        public string LastName { get; set; }
+    [MaxLength(150)]
+    public string FirstName { get; set; }
+    
+    [MaxLength(150)]
+    public string LastName { get; set; }
 
-        [MaxLength(150)]
-        public string OtherName { get; set; }
+    [MaxLength(150)]
+    public string OtherName { get; set; }
 
-        public Title Title { get; set; }
+    public Title Title { get; set; }
 
-        public bool VerifiedEmail { get; set; }
+    public bool VerifiedEmail { get; set; }
 
-        public string TelephoneNumber { get; set; }
+    public string TelephoneNumber { get; set; }
 
-        public UserType UserType { get; }
-    }
+    public UserType UserType { get; }
 }

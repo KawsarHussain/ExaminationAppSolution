@@ -24,6 +24,11 @@ namespace ExaminationApp
             //Makes the user repository a singleton so that multiple versions of it do not exist improving consistency
             builder.Services.AddSingleton<UserRepository>(s => ActivatorUtilities.CreateInstance<UserRepository>(s, dbPath));
 
+            dbPath = FileAccessHelper.GetLocalFilePath("Post.db3");
+
+            //Makes the post repository a singleton so that multiple versions of it do not exist improving consistency
+            builder.Services.AddSingleton<PostRepository>(s => ActivatorUtilities.CreateInstance<PostRepository>(s, dbPath));
+
 
             return builder.Build();
         }
