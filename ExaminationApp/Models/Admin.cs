@@ -2,23 +2,17 @@
 
 namespace ExaminationApp.Models;
 
-internal class Admin : User
+public class Admin : User
 {
     
     #region Attributes
 
-    [Required]
-    [Key]
-    private uint _adminID;
 
     #endregion
 
     #region Getters and Setters
 
-    public uint AdminID
-    {
-        get { return this._adminID; }
-    }
+
 
     #endregion
 
@@ -27,13 +21,10 @@ internal class Admin : User
     //Test Constructor
 
     public Admin() : base()
-    {
-        this._adminID = 0;
-    }
+    {}
 
     //Constructor for generating Admin classes when loading from databse
     public Admin(
-        uint adminID,
         uint userId,
         string firstName,
         string lastName,
@@ -55,9 +46,7 @@ internal class Admin : User
             telephoneNumber,
             address
             )
-    {
-        _adminID = adminID;
-    }
+    {}
 
     #endregion
 

@@ -1,6 +1,6 @@
 ﻿namespace ExaminationApp.Models;
 
-internal struct Address
+public struct Address
 {
     #region Attributes
 

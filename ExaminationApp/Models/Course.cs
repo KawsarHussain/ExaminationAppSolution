@@ -1,6 +1,6 @@
 ﻿namespace ExaminationApp.Models;
 
-internal class Course
+public class Course
 {
     #region Attributes
 

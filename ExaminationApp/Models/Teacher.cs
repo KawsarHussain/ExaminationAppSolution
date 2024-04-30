@@ -2,26 +2,16 @@
 
 namespace ExaminationApp.Models;
 
-internal class Teacher : User
+public class Teacher : User
 {
     
     #region Attributes
 
-    [Required]
-    [Key]
-    private uint _teacherID;
     private List<int> _coursesTaught;
 
     #endregion
 
-
     #region Getters and Setters
-
-    public uint TeacherID
-    {
-        get { return this._teacherID; }
-    }
-
     public List<int> CoursesTaught
     {
         get { return this._coursesTaught; }
@@ -33,16 +23,13 @@ internal class Teacher : User
     #region Constructors
 
     //Test Constructor
-
     public Teacher() : base()
     {
-        this._teacherID = 0;
         this._coursesTaught = new List<int>();
     }
 
     //Constructor for generating Teacher classes when loading it from database
     public Teacher(
-        uint teacherID,
         List<int> coursesTaught,
         uint userId,
         string firstName,
@@ -66,7 +53,6 @@ internal class Teacher : User
             address
             )
     {
-        _teacherID = teacherID;
         _coursesTaught = coursesTaught;
     }
 

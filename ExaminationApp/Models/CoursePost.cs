@@ -2,7 +2,7 @@
 
 namespace ExaminationApp.Models;
 
-internal class CoursePost
+public class CoursePost
 {
 
     #region Attributes

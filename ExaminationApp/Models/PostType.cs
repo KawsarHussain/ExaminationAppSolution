@@ -1,6 +1,6 @@
 ﻿namespace ExaminationApp.Models;
 
-internal enum PostType
+public enum PostType
 {
     Assessment,
     Comment,

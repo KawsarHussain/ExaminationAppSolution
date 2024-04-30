@@ -2,7 +2,7 @@
 
 namespace ExaminationApp.Models;
 
-internal abstract class User //User type are not going to be generated
+public abstract class User //User type are not going to be generated
 {
     
     #region Attributes
@@ -92,7 +92,7 @@ internal abstract class User //User type are not going to be generated
         this._firstName = "Test";
         this._lastName = "Test";
         this._otherName = "Test";
-        this._title = "Male";
+        this._title = "Mr";
         this._emailAddress = "test@test.com";
         this._verifiedEmail = true;
         this._telephoneNumber = "+1 202-456-1111";

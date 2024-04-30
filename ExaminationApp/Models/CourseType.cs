@@ -1,6 +1,6 @@
 ﻿namespace ExaminationApp.Models;
 
-internal enum CourseType
+public enum CourseType
 {
     Remote,
     Hybrid,
