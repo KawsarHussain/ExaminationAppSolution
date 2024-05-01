@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using ExaminationApp.Models;
+using ExaminationApp.ViewModel;
 
 namespace ExaminationApp
 {
@@ -29,6 +30,12 @@ namespace ExaminationApp
             //Makes the post repository a singleton so that multiple versions of it do not exist improving consistency
             builder.Services.AddSingleton<PostRepository>(s => ActivatorUtilities.CreateInstance<PostRepository>(s, dbPath));
 
+            //Registering Pages
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
+
+            builder.Services.AddSingleton<LoginPage>();
+            builder.Services.AddSingleton<LoginViewModel>();
 
             return builder.Build();
         }
