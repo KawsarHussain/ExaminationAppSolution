@@ -1,19 +1,14 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using ExaminationApp.ViewModel;
+﻿using ExaminationApp.ViewModel;
 
-namespace ExaminationApp
+namespace ExaminationApp;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+
+    public MainPage(MainViewModel vm)
     {
-
-        public MainPage(MainViewModel vm)
-        {
-            InitializeComponent();
-            BindingContext = vm;
-        }
-
-
-
+        InitializeComponent();
+        BindingContext = vm;
     }
 
 }
