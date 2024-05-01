@@ -25,6 +25,7 @@
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"/>
         <Entry Placeholder ="Enter Password"
+               IsPassword = "True"
                Grid.Column ="0"
                Grid.Row="3"/>
         <Button Text= "Login"
