@@ -33,8 +33,10 @@ public partial class RegistrationViewModel : ObservableObject
     }
 
     #region Page Methods
+
+    //This method registers a user to the UserRepository databsse which is stored locally
     [RelayCommand]
-    public async void RegisterUser()
+    public async Task RegisterUser()
     {
         if (CheckIfNull())
         {
