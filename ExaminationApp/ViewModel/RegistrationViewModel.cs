@@ -51,6 +51,8 @@ public partial class RegistrationViewModel : ObservableObject
             Password,
             TelephoneNumber,
             UserType);
+
+        EmptyStrings();
     }
 
     #endregion
@@ -68,6 +70,19 @@ public partial class RegistrationViewModel : ObservableObject
             string.IsNullOrWhiteSpace(UserType)) return false;
 
         return true;
+    }
+
+    //Emptys the string values of binded properties
+    private void EmptyStrings()
+    {
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        OtherName = string.Empty;
+        Title = string.Empty;
+        EmailAddress = string.Empty;
+        Password = string.Empty;
+        TelephoneNumber = string.Empty;
+        UserType = string.Empty;
     }
 
     #endregion
