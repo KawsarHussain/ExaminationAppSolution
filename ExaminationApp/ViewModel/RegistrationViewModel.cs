@@ -61,15 +61,14 @@ public partial class RegistrationViewModel : ObservableObject
     //Checks to see if any of the required input values are null
     private bool CheckIfNull()
     {
-        if (string.IsNullOrWhiteSpace(FirstName) ||
+        return string.IsNullOrWhiteSpace(FirstName) ||
             string.IsNullOrWhiteSpace(LastName) ||
             string.IsNullOrWhiteSpace(TelephoneNumber) ||
             string.IsNullOrWhiteSpace(EmailAddress) ||
             string.IsNullOrWhiteSpace(Password) ||
             string.IsNullOrWhiteSpace(Title) ||
-            string.IsNullOrWhiteSpace(UserType)) return false;
+            string.IsNullOrWhiteSpace(UserType);
 
-        return true;
     }
 
     //Emptys the string values of binded properties
