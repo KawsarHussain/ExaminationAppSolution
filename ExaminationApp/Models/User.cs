@@ -22,6 +22,8 @@ public abstract class User //User type are not going to be generated
 
     private bool _verifiedEmail;
 
+    private string _password;
+
     [Phone]
     private string _telephoneNumber;
 
@@ -70,6 +72,12 @@ public abstract class User //User type are not going to be generated
         get { return this._verifiedEmail; }
     }
 
+    public string Password
+    {
+        get { return this._password; }
+        set { this._password = value; }
+    }
+
     public string TelephoneNumber
     {
         get { return this._telephoneNumber; }
@@ -95,6 +103,7 @@ public abstract class User //User type are not going to be generated
         this._title = "Mr";
         this._emailAddress = "test@test.com";
         this._verifiedEmail = true;
+        this._password = "Password123";
         this._telephoneNumber = "+1 202-456-1111";
         this._address = new Address(); //Using the test constructor for the Address class
     }
@@ -106,20 +115,22 @@ public abstract class User //User type are not going to be generated
         string lastName, 
         string? otherName, 
         string title, 
-        string emailAddress, 
+        string emailAddress,
+        string password,
         bool verifiedEmail, 
         string telephoneNumber, 
         Address address)
     {
-        _userId = userId;
-        _firstName = firstName;
-        _lastName = lastName;
-        _otherName = otherName;
-        _title = title;
-        _emailAddress = emailAddress;
-        _verifiedEmail = verifiedEmail;
-        _telephoneNumber = telephoneNumber;
-        _address = address;
+        this._userId = userId;
+        this._firstName = firstName;
+        this._lastName = lastName;
+        this._otherName = otherName;
+        this._title = title;
+        this._emailAddress = emailAddress;
+        this._verifiedEmail = verifiedEmail;
+        this._password = password;
+        this._telephoneNumber = telephoneNumber;
+        this._address = address;
     }
 
     #endregion

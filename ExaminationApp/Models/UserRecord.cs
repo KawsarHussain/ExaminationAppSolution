@@ -18,10 +18,14 @@ public class UserRecord
     public string OtherName { get; set; }
 
     public Title Title { get; set; }
+    
+    public string EmailAddress { get; set; }
+
+    public string Password { get; set; }
 
     public bool VerifiedEmail { get; set; }
 
     public string TelephoneNumber { get; set; }
 
-    public UserType UserType { get; }
+    public UserType UserType { get; set; }
 }

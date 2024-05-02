@@ -28,26 +28,40 @@ public class UserRepository
     }
 
     //Adds a User to the User table
-    public async Task AddNewUser(string name)
+    public async Task AddNewUser(
+        string firstName, 
+        string lastName, 
+        string otherName,
+        string title,
+        string emailaddress,
+        string password,
+        string telephoneNumber,
+        string userType)
     {
         int result = 0;
         try
         {
             await Init();
-
-            //Bbasic validation to ensure a name was entered
-            if (string.IsNullOrEmpty(name))
-                throw new Exception("Valid name required");
-
             //Inserts user to the User table
-            result = await conn.InsertAsync(new UserRecord { FirstName = name });
+            result = await conn.InsertAsync(
+            new UserRecord { 
+                FirstName = firstName, 
+                LastName = lastName, 
+                OtherName = otherName,
+                Title = (Title)Enum.Parse(typeof(Title),title),
+                EmailAddress = emailaddress,
+                Password = password,
+                TelephoneNumber = telephoneNumber,
+                UserType = (UserType)Enum.Parse(typeof(UserType),userType)
+
+            });
             result = 0;
 
-            StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
+            StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, firstName);
         }
         catch (Exception ex)
         {
-            StatusMessage = string.Format("Failed to add {0}. Error: {1}", name, ex.Message);
+            StatusMessage = string.Format("Failed to add {0}. Error: {1}", firstName, ex.Message);
         }
 
     }

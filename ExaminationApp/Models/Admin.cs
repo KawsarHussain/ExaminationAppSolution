@@ -31,6 +31,7 @@ public class Admin : User
         string? otherName,
         string title,
         string emailAddress,
+        string password,
         bool verifiedEmail,
         string telephoneNumber,
         Address address
@@ -42,6 +43,7 @@ public class Admin : User
             otherName,
             title,
             emailAddress,
+            password,
             verifiedEmail,
             telephoneNumber,
             address

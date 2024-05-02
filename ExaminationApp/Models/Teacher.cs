@@ -37,6 +37,7 @@ public class Teacher : User
         string? otherName,
         string title,
         string emailAddress,
+        string password,
         bool verifiedEmail,
         string telephoneNumber,
         Address address
@@ -48,6 +49,7 @@ public class Teacher : User
             otherName,
             title,
             emailAddress,
+            password,
             verifiedEmail,
             telephoneNumber,
             address
