@@ -81,4 +81,25 @@ public class UserRepository
 
         return new List<UserRecord>();
     }
+
+    //A method to get a specific user from the User table based on a username and password
+
+    public async Task<UserRecord> GetUser(string  email, string password)
+    {
+        try
+        {
+            await Init();
+            //Uses a Linq statement to select a user based on if the 
+            var user = from u in conn.Table<UserRecord>()
+                       where u.EmailAddress == email && u.Password == password
+                       select u;
+            return await user.FirstOrDefaultAsync();
+        }
+        catch (Exception ex)
+        {
+
+            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+        }
+        return new UserRecord();
+    }
 }

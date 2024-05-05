@@ -38,6 +38,7 @@ public partial class RegistrationViewModel : ObservableObject
     [RelayCommand]
     public async Task RegisterUser()
     {
+        //Checks to see if any required fields are null
         if (CheckIfNull())
         {
             return;

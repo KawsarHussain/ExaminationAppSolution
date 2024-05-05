@@ -16,7 +16,8 @@
                Grid.Row="0"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"/>
-        <Entry Placeholder ="Enter Email Address"
+        <Entry Text="{Binding Email}"
+               Placeholder ="Enter Email Address"
                Grid.Column ="0"
                Grid.Row="1"/>
         <Label Text="Password"
@@ -24,7 +25,8 @@
                Grid.Row="2"
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center"/>
-        <Entry Placeholder ="Enter Password"
+        <Entry Text="{Binding Password}"
+               Placeholder ="Enter Password"
                IsPassword = "True"
                Grid.Column ="0"
                Grid.Row="3"/>
