@@ -7,6 +7,8 @@ public class PostRepository
 {
     string _dbPath;
 
+    public List<PostRecord> Records {  get; set; }
+
     public string StatusMessage { get; set; }
 
     private SQLiteAsyncConnection conn;
@@ -76,10 +78,11 @@ public class PostRepository
         {
             await Init();
             //Query gets posts baed on if the posts user id is the same as the logged in users id
-            var posts = from p in conn.Table<PostRecord>()
-                       where p.userID == App.LoginUser.Id
-                       select p;
-            return await posts.ToListAsync();
+            var posts = await (from p in conn.Table<PostRecord>()
+                         where p.userID == App.LoginUser.Id
+                         select p).ToListAsync();
+            Records = posts;
+            return posts;
         }
 
         catch (Exception ex)

@@ -16,7 +16,7 @@ public partial class DashboardViewModel : ObservableObject
     string type;
 
     [ObservableProperty]
-    List<CoursePost> coursePosts;
+    List<PostRecord> postList;
 
 
     #endregion

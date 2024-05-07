@@ -91,7 +91,7 @@ public class UserRepository
             await Init();
             //Uses a Linq statement to select a user based on if the 
             var user = from u in conn.Table<UserRecord>()
-                       where u.EmailAddress == email && u.Password == password
+                       where u.EmailAddress.ToLower() == email.ToLower() && u.Password == password
                        select u;
             return await user.FirstOrDefaultAsync();
         }

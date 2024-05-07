@@ -47,9 +47,7 @@ public partial class LoginViewModel : ObservableObject
 
         EmptyStrings();
 
-        //TOFO Create a Dashboard Page
-        
-        //await Shell.Current.GoToAsync(nameof(DashboardPage));
+        await Shell.Current.GoToAsync(nameof(DashboardPage));
     }
 
     #region HelperMethods

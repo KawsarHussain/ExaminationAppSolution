@@ -5,10 +5,28 @@
              xmlns:viewmodel="clr-namespace:ExaminationApp.ViewModel"
              x:DataType="viewmodel:DashboardViewModel"
              Title="DashboardPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+
+    <CollectionView
+        x:Name="PostList"
+        ItemsSource="{Binding PostList}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid WidthRequest="300"
+                      ColumnDefinitions=".8*,.2*"
+                      RowDefinitions="Auto, Auto"
+                      Padding="10"
+                      RowSpacing="10"
+                      ColumnSpacing="10">
+
+                    <Label Text="{Binding Title}" FontSize="Title"
+                           Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label Text="{Binding Body}" FontSize="Medium"
+                           Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        
+    </CollectionView>
 </ContentPage>
