@@ -42,6 +42,9 @@ public partial class LoginViewModel : ObservableObject
         //If there isn't a match, user will be null
         if (user == null) { return; }
 
+        //Sets the LoginUser attribute stored in App so that it can be used in multiple pages
+        App.SetLoginUser(user);
+
         EmptyStrings();
 
         //TOFO Create a Dashboard Page

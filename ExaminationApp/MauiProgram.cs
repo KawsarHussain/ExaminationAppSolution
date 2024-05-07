@@ -30,7 +30,10 @@ namespace ExaminationApp
             //Makes the post repository a singleton so that multiple versions of it do not exist improving consistency
             builder.Services.AddSingleton<PostRepository>(s => ActivatorUtilities.CreateInstance<PostRepository>(s, dbPath));
 
-            //Registering Pages
+            //Registering Data
+            builder.Services.AddSingleton<UserRecord>();
+
+            //Registering Pages and View Models
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
 
@@ -39,6 +42,9 @@ namespace ExaminationApp
 
             builder.Services.AddSingleton<RegistrationPage>();
             builder.Services.AddSingleton<RegistrationViewModel>();
+
+            builder.Services.AddSingleton<DashboardPage>();
+            builder.Services.AddSingleton<DashboardViewModel>();
 
             return builder.Build();
         }

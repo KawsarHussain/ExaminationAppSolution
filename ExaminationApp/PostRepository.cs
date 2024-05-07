@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using ExaminationApp.Models;
+using Microsoft.Maui.ApplicationModel.Communication;
 namespace ExaminationApp;
 
 public class PostRepository
@@ -60,6 +61,27 @@ public class PostRepository
             await Init();
             return await conn.Table<PostRecord>().ToListAsync();
         }
+        catch (Exception ex)
+        {
+            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+        }
+
+        return new List<PostRecord>();
+    }
+
+    //Gets the posts of the user that is logged in to the system
+    public async Task<List<PostRecord>> GetDashboardPosts()
+    {
+        try
+        {
+            await Init();
+            //Query gets posts baed on if the posts user id is the same as the logged in users id
+            var posts = from p in conn.Table<PostRecord>()
+                       where p.userID == App.LoginUser.Id
+                       select p;
+            return await posts.ToListAsync();
+        }
+
         catch (Exception ex)
         {
             StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);

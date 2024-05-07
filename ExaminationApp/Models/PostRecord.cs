@@ -1,5 +1,4 @@
 ﻿using SQLite;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExaminationApp.Models;
 
@@ -13,7 +12,5 @@ public class PostRecord
     public string Title { get; set; }
     public string Body {  get; set; }
     public PostType PostType {  get; set; }
-
-    [ForeignKey(nameof(UserRecord))]
     public int userID { get; set;}
 }
