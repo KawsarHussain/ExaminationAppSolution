@@ -3,13 +3,24 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
            x:Class="ExaminationApp.CreatePost"
+           xmlns:viewmodel="clr-namespace:ExaminationApp.ViewModel"
+           x:DataType="viewmodel:CreatePostViewModel"
+           VerticalOptions="Center"
            CanBeDismissedByTappingOutsideOfPopup="False"> 
     <!--Line above indicates that the popup can't be dismissed when being clicked outside of-->
-    
-    <VerticalStackLayout BackgroundColor="White" >
-        <Label 
-            Text="Form Creation"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Frame BorderColor="Purple">
+        <VerticalStackLayout BackgroundColor="White">
+            <Label Text="Form Creation"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" />
+
+            <Button Text="Close"
+                    HorizontalOptions="End"
+                    VerticalOptions="Center"
+                    x:Name="btnclose"
+                    Clicked="btnclose_Clicked"></Button>
+        </VerticalStackLayout>
+    </Frame>
+
 </mct:Popup>

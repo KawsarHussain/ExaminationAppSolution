@@ -4,7 +4,7 @@ using ExaminationApp.Models;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class LoginViewModel : ObservableObject
+public partial class LoginViewModel : ObservableObject, FormHelper
 {
 
     #region Attributes
@@ -52,13 +52,13 @@ public partial class LoginViewModel : ObservableObject
 
     #region HelperMethods
 
-    private void EmptyStrings()
+    public void EmptyStrings()
     {
         Email = string.Empty;
         Password = string.Empty;
     }
 
-    private bool CheckIfNull()
+    public bool CheckIfNull()
     {
         return string.IsNullOrWhiteSpace(Email) ||
             string.IsNullOrWhiteSpace(Password);

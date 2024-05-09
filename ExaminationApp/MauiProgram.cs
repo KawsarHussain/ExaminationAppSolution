@@ -48,6 +48,9 @@ namespace ExaminationApp
             builder.Services.AddSingleton<DashboardPage>();
             builder.Services.AddSingleton<DashboardViewModel>();
 
+            builder.Services.AddSingleton<CreatePost>();
+            builder.Services.AddSingleton<CreatePostViewModel>();
+
             return builder.Build();
         }
     }

@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class RegistrationViewModel : ObservableObject
+public partial class RegistrationViewModel : ObservableObject, FormHelper
 {
     #region Attributes
 
@@ -60,7 +60,7 @@ public partial class RegistrationViewModel : ObservableObject
 
     #region Helper Methods
     //Checks to see if any of the required input values are null
-    private bool CheckIfNull()
+    public bool CheckIfNull()
     {
         return string.IsNullOrWhiteSpace(FirstName) ||
             string.IsNullOrWhiteSpace(LastName) ||
@@ -73,7 +73,7 @@ public partial class RegistrationViewModel : ObservableObject
     }
 
     //Emptys the string values of binded properties
-    private void EmptyStrings()
+    public void EmptyStrings()
     {
         FirstName = string.Empty;
         LastName = string.Empty;
