@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using ExaminationApp.Models;
 using ExaminationApp.ViewModel;
+using CommunityToolkit.Maui;
 
 namespace ExaminationApp
 {
@@ -11,6 +12,7 @@ namespace ExaminationApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
