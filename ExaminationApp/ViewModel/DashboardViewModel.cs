@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Maui.Views;
 using ExaminationApp.Models;
+using CommunityToolkit.Mvvm.Input;
 
 namespace ExaminationApp.ViewModel;
 
@@ -25,5 +27,11 @@ public partial class DashboardViewModel : ObservableObject
 
     }
 
+    [RelayCommand]
+    public async Task ShowCreatePost()
+    {
+        var popup = new CreatePost();
+        Shell.Current.CurrentPage.ShowPopup(popup);
+    }
 
 }

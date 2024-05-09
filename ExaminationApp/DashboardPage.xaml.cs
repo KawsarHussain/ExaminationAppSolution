@@ -13,6 +13,8 @@ public partial class DashboardPage : ContentPage
 		//Adds in all the posts to the vm so that it can be used in the page
 		if (App.PostRepo.Records != null)
 			vm.PostList.AddRange(App.PostRepo.Records);
+		else
+			vm.PostList = new();
 
 		 
 	}

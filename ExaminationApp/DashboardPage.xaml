@@ -6,27 +6,33 @@
              x:DataType="viewmodel:DashboardViewModel"
              Title="DashboardPage">
 
-
-    <CollectionView
+    <VerticalStackLayout>
+        <CollectionView
         x:Name="PostList"
         ItemsSource="{Binding PostList}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Grid WidthRequest="300"
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid WidthRequest="300"
                       ColumnDefinitions=".8*,.2*"
                       RowDefinitions="Auto, Auto"
                       Padding="10"
                       RowSpacing="10"
                       ColumnSpacing="10">
 
-                    <Label Text="{Binding Title}" FontSize="Title"
+                        <Label Text="{Binding Title}" FontSize="Title"
                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                    <Label Text="{Binding Body}" FontSize="Medium"
+                        <Label Text="{Binding Body}" FontSize="Medium"
                            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                </Grid>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-        
-    </CollectionView>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Create Post" 
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Command="{Binding ShowCreatePostCommand}"/>
+    </VerticalStackLayout>
+
 </ContentPage>
