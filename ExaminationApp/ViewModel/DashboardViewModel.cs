@@ -23,10 +23,21 @@ public partial class DashboardViewModel : ObservableObject, FormHelper
 
     //Method Allows for the opening of the CreatePost popup page
     [RelayCommand]
-    public async Task ShowCreatePost()
+    public void ShowCreatePost()
     {
         var popup = new CreatePost(new CreatePostViewModel());
         Shell.Current.CurrentPage.ShowPopup(popup);
+    }
+
+    [RelayCommand]
+    public void RefreshPage()
+    {
+        this.postList.Clear();
+        if (App.PostRepo.DashboardPosts != null)
+        {
+            foreach (var record in App.PostRepo.DashboardPosts)
+                this.PostList.Add(record);
+        }
     }
 
 

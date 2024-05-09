@@ -11,7 +11,7 @@ public partial class CreatePost : Popup
 		BindingContext = vm;
 	}
 
-    private void btnclose_Clicked(object sender, EventArgs e)
+    private void CloseWindow(object sender, EventArgs e)
     {
         this.Close();
     }

@@ -9,18 +9,62 @@
            CanBeDismissedByTappingOutsideOfPopup="False"> 
     <!--Line above indicates that the popup can't be dismissed when being clicked outside of-->
 
-    <Frame BorderColor="Purple">
-        <VerticalStackLayout BackgroundColor="White">
-            <Label Text="Form Creation"
+    <Frame BorderColor="Purple"
+           WidthRequest="500"
+           HeightRequest="800">
+        <Grid RowDefinitions="Auto,*, Auto"
+              ColumnDefinitions="*,*,*"
+              Padding="10"
+              BackgroundColor="White">
+            
+            <!--Header-->
+            
+            <Label Text="Form Creation" FontSize="Title"
+                   Grid.Row="0" Grid.Column="1"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center" />
 
-            <Button Text="Close"
-                    HorizontalOptions="End"
-                    VerticalOptions="Center"
+            <!--Main-->
+            
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+
+                <Label Text="Title of Post"/>
+                <Entry Text="{Binding Title}"
+                       Placeholder="Enter Title Here..."/>
+
+                <Label Text="Content"/>
+                <Entry Text="{Binding Body}"
+                       MinimumHeightRequest="350"
+                       Placeholder="Enter Content Here..."/>
+
+                <Label Text="Type of Post"/>
+                <Picker x:Name= "Type"
+                    SelectedItem="{Binding Type}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Assessment</x:String>
+                            <x:String>Comment</x:String>
+                            <x:String>Update</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+            
+            <!--Footer-->
+            
+            <!--Appear on the bottom right of the screen-->
+
+            <Button Text="Submit"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Command="{Binding CreatePostCommand}"
+                    />
+            <Button Text="Close" 
+                    Grid.Row="2"
+                    Grid.Column="2"
                     x:Name="btnclose"
-                    Clicked="btnclose_Clicked"></Button>
-        </VerticalStackLayout>
+                    Clicked="CloseWindow"></Button>
+        </Grid>
     </Frame>
 
 </mct:Popup>

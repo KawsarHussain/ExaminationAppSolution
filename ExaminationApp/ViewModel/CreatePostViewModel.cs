@@ -21,6 +21,23 @@ public partial class CreatePostViewModel : ObservableObject, FormHelper
 
     }
 
+    [RelayCommand]
+    public async Task CreatePost()
+    {
+        //Return if any of the required fields are empty
+        if (CheckIfNull())
+        {
+            return;
+        }
+
+        await App.PostRepo.AddNewPost(title, body, type, App.LoginUser.Id);
+
+        EmptyStrings();
+
+        //Retrieves the updated data of the dashboard posts
+        await App.PostRepo.GetDashboardPosts();
+    }
+
     #region Helper Methods
 
     public bool CheckIfNull()

@@ -44,17 +44,16 @@ public class UserRepository
             await Init();
             //Inserts user to the User table
             result = await conn.InsertAsync(
-            new UserRecord { 
-                FirstName = firstName, 
-                LastName = lastName, 
-                OtherName = otherName,
-                Title = (Title)Enum.Parse(typeof(Title),title),
-                EmailAddress = emailaddress,
-                Password = password,
-                TelephoneNumber = telephoneNumber,
-                UserType = (UserType)Enum.Parse(typeof(UserType),userType)
-
-            });
+                new UserRecord { 
+                    FirstName = firstName, 
+                    LastName = lastName, 
+                    OtherName = otherName,
+                    Title = (Title)Enum.Parse(typeof(Title),title),
+                    EmailAddress = emailaddress,
+                    Password = password,
+                    TelephoneNumber = telephoneNumber,
+                    UserType = (UserType)Enum.Parse(typeof(UserType),userType)
+                });
             result = 0;
 
             StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, firstName);

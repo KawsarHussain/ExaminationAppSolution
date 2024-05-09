@@ -6,35 +6,50 @@
              xmlns:model="clr-namespace:ExaminationApp.Models"
              x:DataType="viewmodel:DashboardViewModel"
              Title="DashboardPage">
-
-    <VerticalStackLayout>
-        <CollectionView
-        x:Name="PostCollection"
-        ItemsSource="{Binding PostList}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:PostRecord">
-                    <Grid x:Name="PostItem"
+    <Grid RowDefinitions="Auto,*,Auto"
+          ColumnDefinitions="*,*,*">
+        
+        
+        <!--Main Content-->
+        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+            <CollectionView
+                x:Name="PostCollection"
+                ItemsSource="{Binding PostList}">   
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:PostRecord">
+                        <Grid x:Name="PostItem"
                       WidthRequest="300"
                       ColumnDefinitions=".8*,.2*"
                       RowDefinitions="Auto, Auto"
                       Padding="10"
                       RowSpacing="10"
                       ColumnSpacing="10">
-                        <Label Text="{Binding Title}" FontSize="Title"
+                            <Label Text="{Binding Title}" FontSize="Title"
                                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                        <Label Text="{Binding Body}" FontSize="Medium"
+                            <Label Text="{Binding Body}" FontSize="Medium"
                                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Button Text="Create Post" 
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                Command="{Binding ShowCreatePostCommand}"/>
+
+
+        </VerticalStackLayout>
+
+        <!--Footer-->
+        <Button Text="Refresh Page" 
+                Grid.Row="2"
+                Grid.Column="0"
+                Command="{Binding RefreshPageCommand}"/>
         
-    </VerticalStackLayout>
+        <Button Text="Create Post" 
+                Grid.Row="2"
+                Grid.Column="3"
+                Command="{Binding ShowCreatePostCommand}"/>
+
+    </Grid>
+
 
 </ContentPage>

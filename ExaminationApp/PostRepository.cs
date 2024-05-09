@@ -7,7 +7,8 @@ public class PostRepository
 {
     string _dbPath;
 
-    public List<PostRecord> Records {  get; set; }
+
+    public List<PostRecord> DashboardPosts {  get; set; }
 
     public string StatusMessage { get; set; }
 
@@ -31,19 +32,21 @@ public class PostRepository
     }
 
     //Adds a User to the User table
-    public async Task AddNewPost(string title)
+    public async Task AddNewPost(string title, string body, string type, int userID)
     {
         int result = 0;
         try
         {
             await Init();
 
-            //Bbasic validation to ensure a name was entered
-            if (string.IsNullOrEmpty(title))
-                throw new Exception("Valid name required");
-
-            //Inserts user to the User table
-            result = await conn.InsertAsync(new PostRecord { Title = title });
+            //Inserts post to the post table
+            result = await conn.InsertAsync(
+                new PostRecord {
+                    Title = title,
+                    Body = body,
+                    PostType = (PostType)Enum.Parse(typeof(PostType), type),
+                    UserID = userID
+                });
             result = 0;
 
             StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, title);
@@ -79,9 +82,9 @@ public class PostRepository
             await Init();
             //Query gets posts baed on if the posts user id is the same as the logged in users id
             var posts = await (from p in conn.Table<PostRecord>()
-                         where p.userID == App.LoginUser.Id
+                         where p.UserID == App.LoginUser.Id
                          select p).ToListAsync();
-            Records = posts;
+            DashboardPosts = posts;
             return posts;
         }
 
