@@ -3,8 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExaminationApp.ExamCreationPage"
              xmlns:viewmodel="clr-namespace:ExaminationApp.ViewModel"
-             >
+             x:DataType="viewmodel:ExamCreationViewModel"
+             Title="Exam Creation">
     <VerticalStackLayout>
-        
+        <Label Text="Title of Exam"/>
+        <Entry Text="{Binding Title}"
+               HeightRequest="200"
+               Placeholder="Enter Title Here..."/>
+
+        <Label Text="Number of Questions"/>
+        <Entry Text="{Binding AmountOfQuestions}"
+               Keyboard="Numeric"
+               Placeholder="Enter the Amount of Questions Here..."/>
+
+        <Button Text="Continue Exam Creation"
+                Command="{Binding GoToExamFormCommand}"/>
     </VerticalStackLayout>
 </ContentPage>

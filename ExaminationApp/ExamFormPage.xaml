@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExaminationApp.ExamFormPage"
-             xmlns:viewmodel="clr-namespace:ExaminationApp.ViewModel">
+             xmlns:viewmodel="clr-namespace:ExaminationApp.ViewModel"
+             xmlns:model="clr-namespace:ExaminationApp.Models"
+             x:DataType="viewmodel:ExamFormViewModel"
+             Title="Exam Creation">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <CollectionView
+                x:Name="PostCollection"
+                ItemsSource="{Binding Questions}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:ExamQuestions">
+                    <Grid x:Name="QuestionBlock"
+                      WidthRequest="300"
+                      RowDefinitions="Auto, Auto, Auto, Auto"
+                      Padding="10"
+                      RowSpacing="10"
+                      ColumnSpacing="10">
+                        <Label Text="Question"
+                               Grid.Row="0"/>
+                        <Entry Text="{Binding Question}"
+                               Placeholder="Enter Question Here..."
+                               Grid.Row="1"/>
+                        <Label Text="Answer"
+                               Grid.Row="0"/>
+                        <Entry Text="{Binding Answer}"
+                               Placeholder="Enter Answer Here"
+                               Grid.Row="1"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Submit Questions"/>
     </VerticalStackLayout>
-</ContentView>
+</ContentPage>

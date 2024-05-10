@@ -17,7 +17,9 @@
             <Label Text="Enter Email Address"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center"/>
-            <Entry Text="{Binding EmailAddress}"  Placeholder= "Example: 'abc123@example.com'"/>
+            <Entry Text="{Binding EmailAddress}"   
+                   Placeholder= "Example: 'abc123@example.com'"
+                   Keyboard="Email"/>
 
             <Label Text="Enter Password"
                    VerticalOptions="Center" 
@@ -45,12 +47,14 @@
             <Label Text="Enter Other Name"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center"/>
-            <Entry Text="{Binding OtherName}" Placeholder= "Other Name (Leave Blank if not applicable)"/>
+            <Entry Text="{Binding OtherName}" 
+                   Placeholder= "Other Name (Leave Blank if not applicable)"/>
 
             <Label Text="Telephone Number"
                    VerticalOptions="Center" 
                    HorizontalOptions="Center"/>
-            <Entry Text="{Binding TelephoneNumber}" Placeholder= "Insert Telephone Number"/>
+            <Entry Text="{Binding TelephoneNumber}" 
+                   Placeholder= "Insert Telephone Number"/>
 
             <Label Text="Select Title"
                    VerticalOptions="Center" 

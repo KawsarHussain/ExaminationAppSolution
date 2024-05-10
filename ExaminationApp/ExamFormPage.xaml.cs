@@ -1,6 +1,6 @@
 namespace ExaminationApp;
 
-public partial class ExamFormPage : ContentView
+public partial class ExamFormPage : ContentPage
 {
 	public ExamFormPage()
 	{
