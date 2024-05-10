@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class DashboardViewModel : ObservableObject, FormHelper
+public partial class DashboardViewModel : ObservableObject, IFormHelper
 {
 
     #region Attributes

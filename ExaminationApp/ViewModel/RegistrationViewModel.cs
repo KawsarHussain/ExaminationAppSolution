@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class RegistrationViewModel : ObservableObject, FormHelper
+public partial class RegistrationViewModel : ObservableObject, IFormHelper
 {
     #region Attributes
 

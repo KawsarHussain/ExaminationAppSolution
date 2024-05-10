@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class CreatePostViewModel : ObservableObject, FormHelper
+public partial class CreatePostViewModel : ObservableObject, IFormHelper
 {
     #region Attributes
 
@@ -21,6 +21,8 @@ public partial class CreatePostViewModel : ObservableObject, FormHelper
 
     public CreatePostViewModel()
     {
+        //Based on the type of user the logged in user is,
+        //different options are available
         if (App.LoginUser.UserType == Models.UserType.Student)
         {
             TypeOfPostList.Add("Comment");

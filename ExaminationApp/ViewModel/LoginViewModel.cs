@@ -4,7 +4,7 @@ using ExaminationApp.Models;
 
 namespace ExaminationApp.ViewModel;
 
-public partial class LoginViewModel : ObservableObject, FormHelper
+public partial class LoginViewModel : ObservableObject, IFormHelper
 {
 
     #region Attributes

@@ -1,6 +1,6 @@
 ﻿namespace ExaminationApp;
 
-public interface FormHelper
+public interface IFormHelper
 {
     public bool CheckIfNull();
     public void EmptyStrings();
