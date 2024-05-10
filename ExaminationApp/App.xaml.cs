@@ -6,12 +6,16 @@ namespace ExaminationApp
     {
         public static UserRepository UserRepo { get; private set; }
         public static PostRepository PostRepo { get; private set; }
+        public static ExamRepository ExamRepo { get; private set; }
         public static UserRecord LoginUser { get; private set; }
 
         public static string ExamTitle { get; private set; }
         public static ExamQuestions[] ExamQuestionList { get; private set; }
         
-        public App(UserRepository users, PostRepository posts, UserRecord loginUser)
+        public App(UserRepository users, 
+            PostRepository posts,
+            ExamRepository exams, 
+            UserRecord loginUser)
         {
             InitializeComponent();
 
@@ -20,6 +24,9 @@ namespace ExaminationApp
             //Connects the tables to the applications
             UserRepo = users;
             PostRepo = posts;
+            ExamRepo = exams;
+
+            //Connects Attributes to the application
             LoginUser = loginUser;
         }
 

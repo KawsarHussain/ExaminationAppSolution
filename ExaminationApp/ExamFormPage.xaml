@@ -9,7 +9,7 @@
     <VerticalStackLayout>
         <CollectionView
                 x:Name="PostCollection"
-                ItemsSource="{Binding Questions}">
+                ItemsSource="{Binding ExamQuestions}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:ExamQuestions">
                     <Grid x:Name="QuestionBlock"
@@ -33,6 +33,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="Submit Questions"/>
+        <Button Text="Submit Questions"
+                Command="{Binding SubmitCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
