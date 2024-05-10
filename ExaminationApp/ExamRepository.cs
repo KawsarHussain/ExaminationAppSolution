@@ -30,8 +30,8 @@ public class ExamRepository
     //Adds a User to the User table
     public async Task AddNewExam(
         string title,
-        ExamQuestions[] questions
-            )
+        ExamQuestions[] questions,
+        int teacherID)
     {
         int result = 0;
         try
@@ -42,8 +42,9 @@ public class ExamRepository
                 new ExamRecord
                 {
                     Title = title,
-                    Questions = questions
-                }); 
+                    Questions = questions,
+                    TeacherID = teacherID
+                }) ; 
             result = 0;
 
             StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, title);
@@ -73,7 +74,7 @@ public class ExamRepository
 
     //A method to get a specific user from the User table based on a username and password
 
-    public async Task<ExamRecord> GetExam(string title)
+    public async Task<ExamRecord> GetExamByTitle(string title)
     {
         try
         {
@@ -81,6 +82,25 @@ public class ExamRepository
             //Uses a Linq statement to select a user based on if an Exam with that title exists
             var exam = from e in conn.Table<ExamRecord>()
                        where e.Title.ToLower() == title.ToLower()
+                       select e;
+            return await exam.FirstOrDefaultAsync();
+        }
+        catch (Exception ex)
+        {
+
+            StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+        }
+        return new ExamRecord();
+    }
+    //Gets Exams by TeacherID
+    public async Task<ExamRecord> GetExamByTeacherID(int teacherID)
+    {
+        try
+        {
+            await Init();
+            //Uses a Linq statement to select a user based on if an Exam with that title exists
+            var exam = from e in conn.Table<ExamRecord>()
+                       where e.TeacherID == teacherID
                        select e;
             return await exam.FirstOrDefaultAsync();
         }

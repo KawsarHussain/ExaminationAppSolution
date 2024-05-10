@@ -12,4 +12,6 @@ public class ExamRecord
     public string Title { get; set; }
     public ExamQuestions[] Questions { get; set; }
 
+    public int TeacherID { get; set; }
+
 }
