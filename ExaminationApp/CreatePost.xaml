@@ -15,6 +15,7 @@
         <Grid RowDefinitions="Auto,*, Auto"
               ColumnDefinitions="*,*,*"
               Padding="10"
+              ColumnSpacing="10"
               BackgroundColor="White">
             
             <!--Header-->
@@ -34,18 +35,19 @@
 
                 <Label Text="Content"/>
                 <Entry Text="{Binding Body}"
+                       VerticalTextAlignment="Start"
+                       HorizontalTextAlignment="Start"
                        MinimumHeightRequest="350"
                        Placeholder="Enter Content Here..."/>
 
                 <Label Text="Type of Post"/>
                 <Picker x:Name= "Type"
-                    SelectedItem="{Binding Type}">
+                        SelectedItem="{Binding Type}"
+                        ItemsSource="{Binding TypeOfPostList}">
                     <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Assessment</x:String>
-                            <x:String>Comment</x:String>
-                            <x:String>Update</x:String>
-                        </x:Array>
+                        <!--Based on the type of user, 
+                        they'll get access 
+                        to different poat types-->
                     </Picker.ItemsSource>
                 </Picker>
             </VerticalStackLayout>

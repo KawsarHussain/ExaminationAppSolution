@@ -14,11 +14,24 @@ public partial class CreatePostViewModel : ObservableObject, FormHelper
     [ObservableProperty]
     string type;
 
+    [ObservableProperty]
+    List<string> typeOfPostList = new();
+
     #endregion
 
     public CreatePostViewModel()
     {
-
+        if (App.LoginUser.UserType == Models.UserType.Student)
+        {
+            TypeOfPostList.Add("Comment");
+            TypeOfPostList.Add("Update");
+        }
+        else
+        {
+            TypeOfPostList.Add("Assessment");
+            TypeOfPostList.Add("Comment");
+            TypeOfPostList.Add("Update");
+        }
     }
 
     [RelayCommand]
