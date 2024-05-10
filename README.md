@@ -29,3 +29,8 @@ What has not been implemented are as follows:
 - Linking it with a server using Docker
 - The ability to submit files to the application
 - The ability to mark exams as a Teacher
+
+
+# How To Run
+To run the application. Open the project in Visual Studio 2022, have the >NET MAUI package installed. Click the debug and run button to build the application and run it
+I did not have enough time to Populate the tables in the tables and thus when you run the application, the first thing you have to do is register yourself as a user and then login.
