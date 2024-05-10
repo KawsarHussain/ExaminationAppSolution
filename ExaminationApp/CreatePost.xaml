@@ -44,11 +44,11 @@
                 <Picker x:Name= "Type"
                         SelectedItem="{Binding Type}"
                         ItemsSource="{Binding TypeOfPostList}">
-                    <Picker.ItemsSource>
+
                         <!--Based on the type of user, 
                         they'll get access 
                         to different poat types-->
-                    </Picker.ItemsSource>
+
                 </Picker>
             </VerticalStackLayout>
             
