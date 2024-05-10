@@ -8,4 +8,11 @@ public partial class ExamFormViewModel : ObservableObject
     [ObservableProperty]
     ExamQuestions[] questions = App.ExamQuestionList;
 
+    public ExamFormViewModel()
+    {
+
+    }
+
+
+
 }

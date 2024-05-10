@@ -1,9 +1,12 @@
+using ExaminationApp.ViewModel;
+
 namespace ExaminationApp;
 
 public partial class ExamFormPage : ContentPage
 {
-	public ExamFormPage()
+	public ExamFormPage(ExamFormViewModel vm)
 	{
 		InitializeComponent();
+		BindingContext = vm;
 	}
 }

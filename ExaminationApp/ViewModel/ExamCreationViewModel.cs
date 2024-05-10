@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace ExaminationApp.ViewModel;
 
-partial class ExamCreationViewModel : ObservableObject, IFormHelper
+public partial class ExamCreationViewModel : ObservableObject, IFormHelper
 {
     #region Attributes
 
