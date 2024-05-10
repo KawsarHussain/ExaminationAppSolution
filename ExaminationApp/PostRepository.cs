@@ -7,8 +7,9 @@ public class PostRepository
 {
     string _dbPath;
 
-
     public List<PostRecord> DashboardPosts {  get; set; }
+
+    public int PostID { get; set; }
 
     public string StatusMessage { get; set; }
 

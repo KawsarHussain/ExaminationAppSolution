@@ -18,7 +18,6 @@
                VerticalTextAlignment="Center"/>
         <Entry Text="{Binding Email}"
                Placeholder ="Enter Email Address"
-               Keyboard="Email"
                Grid.Column ="0"
                Grid.Row="1"/>
         <Label Text="Password"

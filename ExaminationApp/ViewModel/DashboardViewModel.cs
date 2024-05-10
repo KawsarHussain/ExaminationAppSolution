@@ -40,6 +40,22 @@ public partial class DashboardViewModel : ObservableObject, IFormHelper
         }
     }
 
+    [RelayCommand]
+    public async void MoreDetailsRedirect(PostRecord post)
+    {
+        if (post.PostType == PostType.Assessment && App.LoginUser.UserType == UserType.Teacher)
+        {
+            App.PostRepo.PostID = post.Id;
+            await Shell.Current.GoToAsync(nameof(ExamCreationPage));
+        }
+
+        else
+        {
+            //Not Implemented yet
+            return;
+        }
+    }
+
 
     #region Helper Methods
 
